@@ -1,3 +1,3 @@
 require('./main')
 
-export { testFromSharedModule } from './shared-module'
+export { testFromSharedModule } from './some-functions'

@@ -5,14 +5,14 @@
   "engines": {
     "node": ">=11.11"
   },
-  "main": "./src/index.js",
+  "main": "./dist/index.js",
   "scripts": {
     "start": "NODE_ENV=production node dist/src/index.js",
     "dev": "WATCH_MODE=true nodemon --exec 'ts-node --files --project tsconfig.json' src/index.ts",
     "local": "NODE_ENV=dev WATCH_MODE=true nodemon --exec 'ts-node --files --project tsconfig.json' src/index.ts",
     "build": "if [ \"$NODE_ENV\" = \"dev\" ]; then npm run build:dev ; else npm run build:prod; fi",
     "build:dev": "tsc --project tsconfig.production.json && webpack --config=webpack.config.js --progress",
-    "build:prod": "tsc --project tsconfig.production.json && NODE_ENV=production webpack --config=webpack.production.config.js --progress",
+    "build:prod": "tsc --project tsconfig.production.json",
     "clean": "rm -rf cache dist tmp ts-node",
     "pretest": "yarn lint",
     "test": "ENV_NAME=test jest",
@@ -22,8 +22,7 @@
     "test:coverage": "yarn test --coverage",
     "lint": "tslint --project tsconfig.json '{src,test}/**/*.{ts,tsx}'",
     "lint:fix": "tslint --fix --project tsconfig.json '{src,test}/**/*.{ts,tsx}'",
-    "format": "prettier --write '{src,test}/**/*.{js,ts,tsx,json,css,md}'",
-    "stats": "webpack --profile --json --config=webpack.production.config.js > stats.json"
+    "format": "prettier --write '{src,test}/**/*.{js,ts,tsx,json,css,md}'"
   },
   "author": "",
   "license": "ISC",
