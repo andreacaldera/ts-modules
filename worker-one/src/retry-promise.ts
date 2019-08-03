@@ -19,7 +19,7 @@ export const retryPromise = <T>(config?: RetryPromiseConfig) => async (
         if (attempts === 0) {
           return reject(error)
         }
-        await promiseWait(timeout)
+        promiseWait(timeout)
         return retryPromise({ attempts: attempts - 1, timeout })(f)
       })
   })

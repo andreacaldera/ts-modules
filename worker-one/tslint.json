@@ -27,6 +27,7 @@
     "strict-type-predicates": true,
     "typedef": true,
     "unified-signatures": true,
-    "jsx-boolean-value": false
+    "await-promise": true,
+    "no-unused-variable": true
   }
 }
